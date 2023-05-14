@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg2"
+    tools:context=".NotificationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:background="@drawable/rounded_corner"
+            android:text="Analyse stress with Salsii"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="italic"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="45dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="386dp"
+                    android:layout_height="wrap_content"
+                    android:text="your stressed"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rounded_corner"
+                    android:textSize="39dp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="386dp"
+                    android:layout_height="wrap_content"
+                    android:text="you have new friend"
+                    android:layout_marginTop="19dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rounded_corner"
+                    android:textSize="39dp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

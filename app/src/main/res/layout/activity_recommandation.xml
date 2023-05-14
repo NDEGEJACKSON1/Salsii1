@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+    tools:context=".recommandation">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/rounded_corner"
+                android:text="Analyse stress with Salsii"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="italic"
+                android:visibility="visible"
+                tools:visibility="visible"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="51dp"
+                    android:textColor="@color/white"
+                    android:text="bru bru bru"
+                    android:textSize="24dp"
+                    android:gravity="center"
+                    android:textStyle="italic"
+                    android:background="#FF316675"
+                    />
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="51dp"
+                    android:textSize="26dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/rounded_corner"
+                    android:text="V"
+                    android:gravity="center"
+                    android:layout_marginLeft="23dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
