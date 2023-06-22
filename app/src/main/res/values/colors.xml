@@ -10,4 +10,6 @@
     <color name="colorPrimary">#05c3f9</color>
     <color name="colorPrimaryDark">#0691b8</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="black_background">#292828</color>
+
 </resources>
