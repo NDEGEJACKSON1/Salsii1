@@ -1,2 +1,7 @@
-package com.stress.salsii1;public interface ViewHolder {
+package com.stress.salsii1;
+
+import android.view.View;
+
+public interface ViewHolder {
+    void onClick(View v);
 }

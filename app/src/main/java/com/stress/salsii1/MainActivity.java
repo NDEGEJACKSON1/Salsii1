@@ -1,6 +1,7 @@
 package com.stress.salsii1;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -79,20 +80,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.hearing) {
-            // Handle menu item 1 selection
-            Toast.makeText(this, "Listening clicked", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (itemId == R.id.login) {
-            // Handle menu item 2 selection
-            Toast.makeText(this, "login selected", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (itemId == R.id.logout) {
-            // Handle menu item 3 selection
-            Toast.makeText(this, "logout selected", Toast.LENGTH_SHORT).show();
-            return true;
+        // Handle item selection
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.hearing:
+//                hearing();
+                Toast.makeText(this, "item one selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.login:
+//                login();
+                Intent intent = new Intent(this, login.class);
+                startActivity(intent);
+//                Toast.makeText(this, "login selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.logout:
+//                logout();
+                Toast.makeText(this, "logout successfully", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 }

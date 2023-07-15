@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ import java.util.List;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements Adapter.OnItemClickListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,14 +38,7 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
@@ -101,7 +95,7 @@ public class HomeFragment extends Fragment {
         userlist.add(new Model(R.drawable.salsiilogo, "heartms.com", "23:53Pm", "Automated stress detection using natural language processing and machine learning"));
         userlist.add(new Model(R.drawable.salsiilogo, "iCardiosys.com", "00:53Pm", "Automated stress detection using natural language processing and machine learning"));
         userlist.add(new Model(R.drawable.salsiilogo, "Sartify.com", "02:53Pm", "Automated stress detection using natural language processing and machine learning"));
-        userlist.add(new Model(R.drawable.salsiilogo, "Salsii.com", "12:53Pm", "Automated stress detection using natural language processing and machine learning"));
+        userlist.add(new Model(R.drawable.salsiilogo, "Caf.com", "12:53Pm", "Automated stress detection using natural language processing and machine learning"));
     }
 
     private void initRecyclerView() {
@@ -112,6 +106,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new Adapter(userlist);
         recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(this); // Set the item click listener
         adapter.notifyDataSetChanged();
     }
 
@@ -128,4 +123,14 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onItemClick(Model model) {
+        // Handle item click event here
+        String name = model.getMessageView();
+
+        // Update the desired layout or TextView with the message
+        // For example, if you have a TextView with id 'messageTextView' in your fragment layout
+        TextView messageTextView = requireView().findViewById(R.id.predict);
+        messageTextView.setText(name);
+    }
 }

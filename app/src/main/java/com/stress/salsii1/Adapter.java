@@ -3,6 +3,7 @@ package com.stress.salsii1;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,9 +15,15 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private List<Model> userlist;
+    private OnItemClickListener onItemClickListener; // Item click listener
 
     public Adapter(List<Model> userlist) {
         this.userlist = userlist;
+    }
+
+    // Setter method for item click listener
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
     }
 
     @NonNull
@@ -44,7 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return userlist.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements com.stress.salsii1.ViewHolder, View.OnClickListener {
 
         private ImageView imageView;
         private TextView textView;
@@ -58,6 +65,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             textView = itemView.findViewById(R.id.textView);
             timeView = itemView.findViewById(R.id.timeView);
             messageView = itemView.findViewById(R.id.messageView);
+
+            // Set click listener for the item view
+            itemView.setOnClickListener(this);
         }
 
         public void setData(int resource, String name, String time, String msg) {
@@ -66,5 +76,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             timeView.setText(time);
             messageView.setText(msg);
         }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION && onItemClickListener != null) {
+                Model model = userlist.get(position);
+                onItemClickListener.onItemClick(model);
+            }
+        }
+    }
+
+    // Interface for item click listener
+    public interface OnItemClickListener {
+        void onItemClick(Model model);
     }
 }

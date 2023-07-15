@@ -1,5 +1,6 @@
 package com.stress.salsii1;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -13,12 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -44,14 +47,6 @@ public class NotificationFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment NotificationFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static NotificationFragment newInstance(String param1, String param2) {
         NotificationFragment fragment = new NotificationFragment();
@@ -78,29 +73,12 @@ public class NotificationFragment extends Fragment {
     List<Model> userlist;
     Adapter adapter;
 
+//    private RequestQueue requestQueue;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-////        API testing to display the recent posted by user
-//        TextView tv = (TextView) context.findViewById(R.id.recyclerView);
-//        String url = "https://jsonplaceholder.typicode.com/todos/1";
-//
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                tv.setText(response.toString());
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                tv.setText("error");
-//            }
-//        });
-//
-//        RequestQueue requestQueue = Volley.newRequestQueue(context);
-//        requestQueue.add(jsonObjectRequest);
 
         context = getActivity();
 
@@ -109,12 +87,43 @@ public class NotificationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
         recyclerView = view.findViewById(R.id.recyclerView); // Find the RecyclerView by ID
 
+        // API testing to display the recent posted by user
+        // Create the RequestQueue
+//        requestQueue = Volley.newRequestQueue(requireContext());
 
+        // Make the API request
+//        makeApiRequest();
     initData();
     initRecyclerView();
 
         return view;
 }
+
+//    private void makeApiRequest() {
+//        TextView tv = (TextView) context.findViewById(R.id.hello);
+//        String url = "https://jsonplaceholder.typicode.com/todos/1"; // Replace with your API endpoint
+//
+//        // Create a JsonObjectRequest with your API URL
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        // Handle the API response
+//                        // Parse the JSON response and update your data accordingly
+//                       tv.setText(response.toString());
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                // Handle API error
+//                // Display an error message or handle the error case
+//                tv.setText("Error");
+//            }
+//        });
+//
+//        // Add the request to the RequestQueue
+//        requestQueue.add(request);
+//    }
 
     private void initData() {
 
@@ -127,7 +136,7 @@ public class NotificationFragment extends Fragment {
         userlist.add(new Model(R.drawable.salsiilogo, "heartms.com", "23:53Pm", "Automated stress detection using natural language processing and machine learning"));
         userlist.add(new Model(R.drawable.salsiilogo, "iCardiosys.com", "00:53Pm", "Automated stress detection using natural language processing and machine learning"));
         userlist.add(new Model(R.drawable.salsiilogo, "Sartify.com", "02:53Pm", "Automated stress detection using natural language processing and machine learning"));
-        userlist.add(new Model(R.drawable.salsiilogo, "Salsii.com", "12:53Pm", "Automated stress detection using natural language processing and machine learning"));
+        userlist.add(new Model(R.drawable.salsiilogo, "Caf.com", "12:53Pm", "Automated stress detection using natural language processing and machine learning"));
     }
 
     private void initRecyclerView() {
